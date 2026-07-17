@@ -1,0 +1,67 @@
+.modal__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-Color: rgba(0,0,0,0.7);
+    display: flex;
+    align-Items: center;
+    justify-Content: center;
+    visibility: visible;
+    z-Index: 4;
+}
+.modal {
+    background: #fbf9f4;
+    padding: 20px;
+    border-Radius: 8px;
+    min-Width: 300px;
+    position: relative;
+}
+.modal__close--btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-Size: 18px;
+    cursor: pointer;
+}
+.apply__btn {
+    position: relative;
+    cursor: pointer;
+    border-color: #c49a62;
+    background-color: #2d5a27;
+    color: #fbf9f4;
+    padding: 5px;
+    left: 255px;
+    bottom: -8px;
+    font-size: 16px;
+    max-width: 100px;
+}
+.modal h2, .title {
+    color: #2d5a27;
+}
+.modal h2 {
+    font-size: 40px;
+}
+.title {
+    font-weight: 700;
+}
+.filter__option {
+    margin-right: 15px;
+}
+.filter__list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.spell__schools select {
+    font-size: 16px;
+    color: #1f241d;
+}
+.spell__schools select option {
+    background-color: #2d5a27;
+    color: #fbf9f4;
+    padding: 10px;
+}
