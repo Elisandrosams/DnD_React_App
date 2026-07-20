@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import "./Spells.css";
@@ -28,8 +29,9 @@ function ClearButton({ onClear, show }) {
 }
 
 const Spells = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [filters, setFilters] = useState({
+  const location = useLocation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const defaultFilters = {
     school: "All",
     concentration: "",
     ritual: "",
@@ -37,10 +39,69 @@ const Spells = () => {
     searchTerm: "",
     classFilter: "All",
     sortBy: "LOW_TO_HIGH",
+  };
+  const paramsToObject = (searchParams) => {
+    const obj = {};
+    for (const [key, value] of searchParams.entries()) {
+      if (key === "range") {
+        obj[key] = value.split(",").map(Number);
+      } else {
+        obj[key] = value;
+      }
+    }
+    return obj;
+  };
+  const [filters, setFilters] = useState({
+    ...defaultFilters,
+    ...paramsToObject(searchParams),
   });
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [tempFilters, setTempFilters] = useState(filters);
-  const [filteredSpells, setFilteredSpells] = useState([]);
+  const openModal = () => {
+    setTempFilters(filters);
+    setIsModalOpen(true);
+  };
+  const applyFilters = () => {
+    setFilters((prev) => {
+      const merged = { ...prev, ...tempFilters };
+      const params = {};
+      for (const key in merged) {
+        if (merged[key] !== "" && merged[key] !== "All") {
+          if (Array.isArray(merged[key])) {
+            params[key] = merged[key].join(",");
+          } else {
+            params[key] = merged[key];
+          }
+        }
+      }
+      setSearchParams(params);
 
+      return merged;
+    });
+
+    setIsModalOpen(false);
+  };
+  const updateFilter = (key, value) => {
+  setFilters((prev) => {
+    const updated = { ...prev, [key]: value };
+
+    const params = {};
+    for (const k in updated) {
+      if (updated[k] !== "" && updated[k] !== "All") {
+        if (Array.isArray(updated[k])) {
+          params[k] = updated[k].join(",");
+        } else {
+          params[k] = updated[k];
+        }
+      }
+    }
+    setSearchParams(params);
+
+    return updated;
+  });
+};
+
+  const [filteredSpells, setFilteredSpells] = useState([]);
   const formatValue = (value) => {
     const num = Number(value);
     if (num === 0) return "Cantrip";
@@ -78,15 +139,14 @@ const Spells = () => {
           (spell.higherLevelSlot === false || spell.higherLevelSlot == null));
       const matchesAction =
         !filters.action ||
-        (filters.action === "Action" &&
-          spell.actionType === "action") ||
+        (filters.action === "Action" && spell.actionType === "action") ||
         (filters.action === "Bonus Action" &&
           spell.actionType === "bonusAction") ||
-        (filters.action === "Reaction" &&
-          spell.actionType === "reaction");
+        (filters.action === "Reaction" && spell.actionType === "reaction");
       const matchesSource =
         !filters.source ||
-        (filters.source === "Player's Handbook (2024)" && spell.source === "Player's Handbook (2024)") ||
+        (filters.source === "Player's Handbook (2024)" &&
+          spell.source === "Player's Handbook (2024)") ||
         (filters.source === "Humblewood" && spell.source === "Humblewood");
 
       return (
@@ -114,25 +174,16 @@ const Spells = () => {
     setFilteredSpells(sortedResults);
   }, [filters]);
 
-  const applyFilters = () => {
-    setFilters(tempFilters);
-    setIsModalOpen(false);
-  };
-
   const excludedKeys = ["range", "sortBy", "searchTerm", "classFilter"];
 
   const clearFilter = (key) => {
     if (excludedKeys.includes(key)) return;
-    setFilters((prev) => ({
-      ...prev,
-      [key]: key === "school" ? "All" : "" 
-    }));
+    updateFilter(key, key === "school" ? "All" : "");
   };
   const activeFilters = Object.entries(filters).filter(([key, value]) => {
     if (excludedKeys.includes(key)) return false;
     return value && !(key === "school" && value === "All");
   });
-
 
   return (
     <div>
@@ -146,7 +197,7 @@ const Spells = () => {
       />
       <div className="spell__search--container">
         <div id="about" className="about">
-          <h1>About</h1>
+          <h1>Spells</h1>
           <p className="about__info">
             This page was created to quickly look up spells and what they do
             while DMing for my kids.
@@ -163,32 +214,21 @@ const Spells = () => {
               id="searchInput"
               placeholder="Search spells"
               value={filters.searchTerm}
-              onChange={(event) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  searchTerm: event.target.value,
-                }))
-              }
+              onChange={(event) => updateFilter("searchTerm", event.target.value)}
             />
             <ClearButton
               onClear={() =>
-                setFilters((prev) => ({ ...prev, searchTerm: "" }))
-              }
+                updateFilter("searchTerm", "")}
               show={filters.searchTerm !== ""}
             />
           </div>
           <div className="slider__container">
             <SpellSlider
               range={filters.range}
-              setRange={(newRange) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  range: newRange,
-                }))
-              }
+              setRange={(newRange) => updateFilter("range", newRange)}
             />
             <ClearButton
-              onClear={() => setFilters((prev) => ({ ...prev, range: [0, 9] }))}
+              onClear={() => updateFilter("range", [0,9])}
               show={filters.range[0] !== 0 || filters.range[1] !== 9}
             />
           </div>
@@ -197,12 +237,7 @@ const Spells = () => {
             <select
               id="searchInput"
               value={filters.classFilter}
-              onChange={(event) =>
-                setFilters((prev) => ({
-                  ...prev,
-                  classFilter: event.target.value,
-                }))
-              }
+              onChange={(event) => updateFilter("classFilter", event.target.value)}
             >
               <option value="All">All</option>
               <option value="bard">Bard</option>
@@ -216,7 +251,7 @@ const Spells = () => {
             </select>
             <ClearButton
               onClear={() =>
-                setFilters((prev) => ({ ...prev, classFilter: "All" }))
+                updateFilter("classFilter", "All")
               }
               show={filters.classFilter !== "All"}
             />
@@ -224,7 +259,7 @@ const Spells = () => {
           <div className="further__filter">
             <button
               className="filter__btn"
-              onClick={() => setIsModalOpen(true)}
+              onClick={openModal}
             >
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <line
@@ -280,19 +315,20 @@ const Spells = () => {
           </div>
         </div>
         {activeFilters.length > 0 && (
-        <div className="filter__box">
-          {activeFilters.map(([key, value]) => (
-          <div key={key} className="filter__chips">
-            <span>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`}</span>
-            <button
-              className="clearchip__btn"
-              onClick={() => clearFilter(key)}
-              >
-              ×
-            </button>
+          <div className="filter__box">
+            {activeFilters.map(([key, value]) => (
+              <div key={key} className="filter__chips">
+                <span>{`${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`}</span>
+                <button
+                  className="clearchip__btn"
+                  onClick={() => clearFilter(key)}
+                >
+                  ×
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-        </div> )}
+        )}
         <div className="filter__container">
           <p>
             {filteredSpells.length === 0
@@ -304,9 +340,7 @@ const Spells = () => {
             <select
               id="filter"
               value={filters.sortBy}
-              onChange={(event) =>
-                setFilters((prev) => ({ ...prev, sortBy: event.target.value }))
-              }
+              onChange={(event) => updateFilter("sortBy", event.target.value)}
             >
               <option value="Sort" disabled>
                 Sort
@@ -322,9 +356,10 @@ const Spells = () => {
         {filteredSpells.length > 0
           ? filteredSpells.map((spell, name) => (
               <Link
-              to={`/spell/${encodeURIComponent(spell.name)}`} 
-              key={spell.name} 
-              className="spellCard"
+                to={`/spell/${encodeURIComponent(spell.name)}`}
+                key={spell.name}
+                className="spellCard"
+                state={{ fromSearch: location.search }}
               >
                 <h3>{spell.name}</h3>
                 <div className="spellInfo">

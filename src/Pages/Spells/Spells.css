@@ -1,215 +1,226 @@
 .about h1 {
-margin-top: 40px;
-color: #2d5a27
+  font-size: 40px;
+  margin-top: 40px;
+  color: #2d5a27;
 }
-.about_info {
-    font-size: 18px;
+.about__info {
+  font-size: 20px;
 }
 .spell__search--container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .spell__search-filters--container {
-    display: flex;
-    box-shadow: 0px 2px 3px #c49a6c;
-    background-color: #8f9e7c;
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 1;
+  display: flex;
+  box-shadow: 0px 2px 3px #c49a6c;
+  background-color: #8f9e7c;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
 }
 .slider__container {
-    display:flex;
-    flex-direction: column;
-    background-color: #8f9e7c;
-    padding: 20px;
-    width: 50%;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #8f9e7c;
+  padding: 20px;
+  width: 50%;
+  align-items: center;
+  position: relative;
 }
 .slider__container button {
-    position: absolute;
-    top: 83px;
-    left: 280px;
+  position: absolute;
+  top: 83px;
+  left: 280px;
 }
 .filter {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 #filter {
-    font-size: 18px;
-    max-width: 450px;
-    padding: 5px;
-    border: 3px solid #c49a6c;
+  font-size: 18px;
+  max-width: 450px;
+  padding: 5px;
+  border: 3px solid #c49a6c;
 }
 .filter__container {
-    display:flex;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0 20px;
-    max-width: 1200px;
-    justify-content: space-between;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 1200px;
+  justify-content: space-between;
 }
 .filter__container p {
-    margin-bottom: 0;
-    margin-top: 55px;
+  margin-bottom: 0;
+  margin-top: 55px;
+  font-size: 20px;
 }
 .further__filter {
-    background-color: #8f9e7c;
-    display: flex;
-    align-items: center;
+  background-color: #8f9e7c;
+  display: flex;
+  align-items: center;
 }
 .filter__btn {
-    background-color: #8f9e7c;
-    height: 80px;
-    width: 60px;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
+  background-color: #8f9e7c;
+  height: 80px;
+  width: 60px;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
 }
 .filter__btn:hover .slider-1 {
-    transform: translate(6px);
+  transform: translate(6px);
 }
 .filter__btn:hover .slider-2 {
-    transform: translate(-6px);
+  transform: translate(-6px);
 }
 .filter__btn:hover .slider-3 {
-    transform: translate(5px);
+  transform: translate(5px);
 }
-.slider-1, .slider-2, .slider-3 {
-    transition: 300ms ease;
+.slider-1,
+.slider-2,
+.slider-3 {
+  transition: 300ms ease;
 }
 .filter__btn svg {
-    width: 100%;
-    height: 100%;
-    background-color: #8f9e7c;
+  width: 100%;
+  height: 100%;
+  background-color: #8f9e7c;
 }
 .search__container {
-    padding: 20px;
-    padding-top: 40px;
-    color: #8f9e7c;
-    font-size: 20px;
-    background-color: #8f9e7c;
-    width: 25%;
-    position: relative;
+  padding: 20px;
+  padding-top: 40px;
+  color: #8f9e7c;
+  font-size: 20px;
+  background-color: #8f9e7c;
+  width: 25%;
+  position: relative;
 }
 .search__container button {
-     position: absolute;
-    top: 76px;
-    left: 150px;
+  position: absolute;
+  top: 76px;
+  left: 150px;
 }
-.search__container:hover #searchInput, 
-.search__container:hover label, 
-.search__container:hover, 
+.search__container:hover #searchInput,
+.search__container:hover label,
+.search__container:hover,
 .class__filter:hover,
 .class__filter:hover label,
 .class__filter:hover #searchInput,
 .further__filter:hover,
 .further__filter:hover .filter__btn,
-.further__filter:hover svg
-{
-    background-color: #748064;
+.further__filter:hover svg {
+  background-color: #748064;
 }
 .search__container label {
-    background-color: #8f9e7c;
+  background-color: #8f9e7c;
 }
 .class__filter {
-    box-sizing: border-box;
-    padding: 40px 20px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    color: #8f9e7c;
-    font-size: 20px;
-    background-color: #8f9e7c;
-    width: 21%;
-    position: relative;
+  box-sizing: border-box;
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  color: #8f9e7c;
+  font-size: 20px;
+  background-color: #8f9e7c;
+  width: 21%;
+  position: relative;
 }
 .class__filter button {
-    position: absolute;
-    top: 77px;
-    left: 100px
-    
+  position: absolute;
+  top: 77px;
+  left: 100px;
 }
 .class__filter #searchInput {
-    cursor: pointer;
+  cursor: pointer;
 }
 .class__filter label {
-    background-color: #8f9e7c;
+  background-color: #8f9e7c;
 }
 #searchInput {
-    box-sizing: border-box;
-    background-color: #8f9e7c;
-    appearance: none;
-    font-size: 20px;
-    padding: 10px;
-    border: none;
-    outline: none;
-    width: 100%;
+  box-sizing: border-box;
+  background-color: #8f9e7c;
+  appearance: none;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
 }
 
 #searchInput::placeholder {
-    opacity: 1;
-    color:rgb(214, 214, 211)
+  opacity: 1;
+  color: rgb(214, 214, 211);
 }
 .spellList {
-    justify-self: center;
-    max-width: 1200px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    padding: 10px;
-    gap: 20px;
+  justify-self: center;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 10px;
+  gap: 20px;
 }
-.spellCard, .spellCard h3, .spellCard p, .spellInfo {
-    background-color: #8f9e7c;
-    margin: 0;
+.spellCard,
+.spellCard h3,
+.spellCard p,
+.spellInfo {
+  background-color: #8f9e7c;
+  margin: 0;
 }
 .spellCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 15px;
-    border-radius: 15px;
-    box-shadow: 0 2px 3px #c49a6c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px #c49a6c;
 }
 .spellCard:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 .spellInfo {
-    display: flex;
-    justify-content: space-between;
-    bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
 }
 .spellCard h3 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.spellCard p {
     font-size: 20px;
-    margin-bottom: 5px;
 }
 .filter__box {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-    max-width: 880px;
-    background-color: #c49a6c;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 10px;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  max-width: 880px;
+  background-color: #c49a6c;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  gap: 10px;
 }
 .filter__chips {
-    padding: 5px;
-    border-radius: 10px;
+  padding: 5px;
+  border-radius: 10px;
 }
 .clearchip__btn {
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
-.filter__chips, .filter__chips span, .clearchip__btn {
-    background-color: #2d5a27;
+.filter__chips,
+.filter__chips span,
+.clearchip__btn {
+  background-color: #2d5a27;
 }
-.filter__chips span, .clearchip__btn {
-    color: #fbf9f4
+.filter__chips span,
+.clearchip__btn {
+  color: #fbf9f4;
 }

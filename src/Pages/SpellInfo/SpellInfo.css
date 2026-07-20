@@ -1,0 +1,64 @@
+.green {
+    color: #2d5a27;
+}
+.spell-card {
+  max-width: 450px;
+  border: 2px solid #c49a6c;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  margin: 20px auto;
+}
+.spell-header {
+  border-bottom: 2px solid #c49a6c;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+}
+.spell-name {
+  margin: 0;
+  font-size: 40px;
+  color: #2d5a27;
+}
+.spell-level {
+  font-size: 20px;
+  color: #2d5a27;
+  display: block;
+}
+.spell-meta,
+.spell-level,
+.spell-name,
+.spell-header,
+.spell-card,
+.green,
+.spell-meta p,
+.spell-field,
+.spell-table,
+.spell-table tbody,
+.spell-table td,
+.spell-table strong,
+.spell-field strong {
+    background: #fdf6e3;
+}
+.spell-table {
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 0.9em;
+  width: 100%;
+}
+.spell-table td {
+  border: 1px solid #c49a6c;
+  padding: 4px 6px;
+}
+
+.spell-meta p {
+  margin: 4px 0;
+  font-size: 20px;
+}
+.spell-field {
+    font-size: 20px;
+}
+.not-found {
+  text-align: center;
+  color: #a33;
+  font-weight: bold;
+}
