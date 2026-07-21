@@ -22,6 +22,7 @@
   z-index: 1;
 }
 .slider__container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   background-color: #8f9e7c;
@@ -91,6 +92,7 @@
   background-color: #8f9e7c;
 }
 .search__container {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding: 20px;

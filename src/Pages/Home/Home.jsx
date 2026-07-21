@@ -2,11 +2,13 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
 import Footer from "../../Components/Footer/Footer";
+import Img from '../../Assets/homeImg.jpg'
 
 const Home = () => {
   return (
-    <div>
-      <Navbar />
+<>
+    <Navbar />
+    <div className="body">
       <div className="title--wrapper">
         <h1>TechBeetle</h1>
         <h1>Dungeons and Dragons</h1>
@@ -31,8 +33,10 @@ const Home = () => {
           to reference our character's spells.
         </p>
       </div>
+       <img src={Img} alt="" className="homeImg" /> 
       <Footer />
     </div>
+    </>
   );
 };
 
