@@ -1,6 +1,7 @@
 .maps-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     font-size: 20px;
     margin: 0 20px;
@@ -29,4 +30,13 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
+@media (max-width: 500px) {
+    .btn_row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .btn {
+        justify-self: center;
+    }
+}
