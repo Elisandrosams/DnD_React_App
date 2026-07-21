@@ -11,7 +11,6 @@ const Footer = () => {
            <Link to="/"><li className='footer_link'>Home</li></Link> 
            <Link to="/Spells"><li className='footer_link'>Spells</li></Link>
            <Link to="/Maps"> <li className='footer_link'>Maps</li></Link>
-           <Link to="/Contacts"><li className='footer_link'>Contact</li></Link>
         </ul>
         <p>&copy; Elisandro Sams 2026 </p>
     </div>

@@ -1,13 +1,18 @@
+
 .navbar_container {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+}
+.nav__logo {
+    height: 120px;
+    width: 160px
 }
 
 .navbar_links--container {
-    padding: 30px;
-    margin: 10px;
     display: flex;
-    align-items: center;
+    
 }
 .nav_links {
     display: flex;

@@ -26,3 +26,8 @@
     background-color: #8f9e7c;
     color: #fbf9f4;
 }
+@media (max-width: 700px) {
+    .card_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

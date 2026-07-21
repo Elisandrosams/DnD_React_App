@@ -1,5 +1,4 @@
 import "./App.css";
-import ContactPage from "./Pages/ContactPage/ContactPage";
 import Home from "./Pages/Home/Home";
 import Maps from "./Pages/Maps/Maps";
 import SpellInfo from "./Pages/SpellInfo/SpellInfo";
@@ -14,7 +13,6 @@ function App() {
         <Route path="/Maps" element={<Maps />} />
         <Route path="/Spells" element={<Spells />} />
         <Route path="/Spell/:spellName" element={<SpellInfo />} />
-        <Route path="/ContactPage" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   );
