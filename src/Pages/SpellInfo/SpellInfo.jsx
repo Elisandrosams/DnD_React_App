@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import spells from "../../Assets/Spelldata/spells.json";
 import ReactMarkdown from "react-markdown";
 import Footer from "../../Components/Footer/Footer";
