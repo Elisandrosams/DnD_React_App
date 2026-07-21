@@ -241,6 +241,38 @@
    .spellList {
     grid-template-columns: repeat(2, 1fr);
   }
+  @media (max-width: 600px) {
+  .spell__search-filters--container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search__container,
+  .slider__container,
+  .class__filter,
+  .further__filter {
+    width: 100%;
+  }
+
+  .search__container button,
+  .slider__container button,
+  .class__filter button {
+    position: static;
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+
+  .filter__btn {
+    width: 100%;
+  }
+  .search__container,
+  .class__filter,
+  #searchInput {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 }
 @media (max-width: 500px) {
    .spellList {
