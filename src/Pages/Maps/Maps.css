@@ -27,9 +27,13 @@
     border-color: #c49a6c;
     color: #fbf9f4;
     font-size: 20px;
-    width: 90px;
+    width: 100px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 300ms ease;
+}
+.btn:hover {
+    background-color: #68725a;
 }
 @media (max-width: 500px) {
     .btn_row {

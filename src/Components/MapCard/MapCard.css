@@ -21,6 +21,7 @@
     border-radius: 10px;
     background-color: #8f9e7c;
     box-shadow: 0px 2px 3px #c49a6c;
+    transition: 300ms ease;
 }
 .card:hover {
     transform: scale(1.1)

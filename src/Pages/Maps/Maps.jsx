@@ -9,7 +9,7 @@ const Maps = () => {
 
 const [filterType, setFilterType] = useState('all')
 const initialMaps = maps_data
-const filteredMaps =filterType === 'all'
+const filteredMaps = filterType === 'all'
 ? initialMaps
 : initialMaps.filter(item => item.type === filterType);
 
