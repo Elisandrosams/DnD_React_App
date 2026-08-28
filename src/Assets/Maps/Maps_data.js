@@ -253,7 +253,7 @@ const maps_data = [
         id:"32",
         image:card_img32,
         name:"Cliff Canyon",
-        type:"Generic",
+        type:"generic",
         campaign:"humblewood"
     },
 ]
