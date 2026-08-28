@@ -29,6 +29,7 @@ import card_img28 from './The Chase_ Stage 5 Caught Up.jpg'
 import card_img29 from './the safe path.jpg'
 import card_img30 from './tunnel.jpg'
 import card_img31 from './Witches Hut.jpg'
+import card_img32 from './Cliff canyon.jpg'
 
 const maps_data = [
     {
@@ -246,6 +247,13 @@ const maps_data = [
         image:card_img31,
         name:"Witches Hut",
         type:"buildings",
+        campaign:"humblewood"
+    },
+    {
+        id:"32",
+        image:card_img32,
+        name:"Cliff Canyon",
+        type:"Generic",
         campaign:"humblewood"
     },
 ]
