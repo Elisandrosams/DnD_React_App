@@ -262,14 +262,14 @@ const maps_data = [
         id:"33",
         image:card_img33,
         name:"Bandit Fort- Courtyard",
-        type:"building",
+        type:"buildings",
         campaign:"humblewood"
     },
     {
         id:"34",
         image:card_img34,
         name:"Bandit Fort- Inner Keep",
-        type:"building",
+        type:"buildings",
         campaign:"humblewood"
     },
 ]
