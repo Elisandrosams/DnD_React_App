@@ -30,7 +30,7 @@ import card_img29 from './the safe path.jpg'
 import card_img30 from './tunnel.jpg'
 import card_img31 from './Witches Hut.jpg'
 import card_img32 from './Cliff canyon.jpg'
-import card_img33 from './Bandit Fort outside.jpeg'
+import card_img33 from './Bandit Fort outside.jpg'
 import card_img34 from './Bandit inner Keep.jpg'
 
 const maps_data = [
